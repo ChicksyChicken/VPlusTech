@@ -9,7 +9,7 @@ import { COMPANY_INFO } from "@/lib/constants";
 const Header: React.FC = () => {
   const { isOpen, toggle, close } = useMobileMenu();
   const [productDropdownVisible, setProductDropdownVisible] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   
   // Apply dark mode class to html element
   useEffect(() => {

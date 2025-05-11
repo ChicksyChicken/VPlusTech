@@ -125,9 +125,7 @@ const Footer: React.FC = () => {
               <Link href="/privacy-policy" className="text-gray-500 hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">
-                Cookie Policy
-              </a>
+
             </div>
           </div>
         </div>
