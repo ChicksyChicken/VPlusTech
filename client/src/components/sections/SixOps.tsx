@@ -1,8 +1,9 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Gamepad2, Headset, Users, Sword, Building, Rocket } from "lucide-react";
+import { Gamepad2, Headset, Users, Sword, Building, Rocket, Glasses, Cpu } from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { COMPANY_INFO } from "@/lib/constants";
 
 const SixOps: React.FC = () => {
   const { ref, isVisible } = useIntersectionObserver();

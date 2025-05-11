@@ -133,7 +133,7 @@ const Products: React.FC = () => {
 
             <h4 className="text-xl font-bold text-gray-700 mb-3">CloudArch Framework</h4>
             <p className="text-gray-500 mb-6">
-              A comprehensive cloud architecture framework for deploying, managing, and
+              An easy to use cloud architecture framework for deploying, managing, and
               scaling web applications.
             </p>
 

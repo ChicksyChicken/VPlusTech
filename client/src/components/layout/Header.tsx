@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { FaDiscord } from "react-icons/fa";
+import { COMPANY_INFO } from "@/lib/constants";
 
 const Header: React.FC = () => {
   const { isOpen, toggle, close } = useMobileMenu();
   const [productDropdownVisible, setProductDropdownVisible] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  
+  // Apply dark mode class to html element
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   const scrollToSection = (id: string) => {
     close();
@@ -98,9 +109,24 @@ const Header: React.FC = () => {
             </Button>
           </div>
 
+          {/* Theme Toggle */}
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => setDarkMode(!darkMode)} 
+            className="mr-2"
+            aria-label="Toggle theme"
+          >
+            {darkMode ? (
+              <Sun className="h-5 w-5" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )}
+          </Button>
+          
           {/* Join Discord Button */}
           <a
-            href="https://discord.gg"
+            href={COMPANY_INFO.discordLink}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center px-4 py-2 rounded-md bg-[hsl(var(--v-primary))] text-white font-medium hover:bg-[hsl(var(--v-primary-light))] transition-colors"
@@ -137,8 +163,21 @@ const Header: React.FC = () => {
               >
                 Contact
               </button>
+              <Button 
+                variant="ghost" 
+                onClick={() => setDarkMode(!darkMode)} 
+                className="flex justify-start items-center py-1 w-full" 
+              >
+                {darkMode ? (
+                  <Sun className="h-5 w-5 mr-2" />
+                ) : (
+                  <Moon className="h-5 w-5 mr-2" />
+                )}
+                {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              </Button>
+              
               <a
-                href="https://discord.gg"
+                href={COMPANY_INFO.discordLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center px-4 py-2 rounded-md bg-[hsl(var(--v-primary))] text-white font-medium hover:bg-[hsl(var(--v-primary-light))] transition-colors"
