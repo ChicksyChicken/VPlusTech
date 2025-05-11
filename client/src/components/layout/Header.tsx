@@ -36,21 +36,21 @@ const Header: React.FC = () => {
       <div className="container mx-auto">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <div className="text-2xl font-bold">
+            <Link href="/" className="text-2xl font-bold">
               <span className="text-[hsl(var(--v-primary-light))]">V</span>
               <span className="text-[hsl(var(--v-primary))]">++</span>{" "}
               <span className="text-gray-700">Technology</span>
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <button
-              onClick={() => scrollToSection("about")}
+            <Link
+              href="/about"
               className="text-gray-700 hover:text-[hsl(var(--v-primary-light))] font-medium transition-colors"
             >
               About
-            </button>
+            </Link>
 
             {/* Products Dropdown */}
             <div className="relative" onMouseLeave={() => setProductDropdownVisible(false)}>

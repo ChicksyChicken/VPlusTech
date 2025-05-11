@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import Home from "@/pages/Home";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import About from "@/pages/About";
 import { useEffect } from "react";
 
 function Router() {
@@ -16,8 +18,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/privacy-policy" component={(() => import("@/pages/PrivacyPolicy").then(module => module.default))} />
-      <Route path="/about" component={(() => import("@/pages/About").then(module => module.default))} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/about" component={About} />
       <Route component={NotFound} />
     </Switch>
   );

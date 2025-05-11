@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "wouter";
 import { FaTwitter, FaLinkedin, FaGithub, FaYoutube, FaDiscord } from "react-icons/fa";
+import { COMPANY_INFO } from "@/lib/constants";
 
 const Footer: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -130,7 +132,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="https://discord.gg"
+                  href={COMPANY_INFO.discordLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
@@ -139,9 +141,9 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -153,12 +155,12 @@ const Footer: React.FC = () => {
               © {new Date().getFullYear()} V++ Technology. All rights reserved.
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">
+              <Link href="/about" className="text-gray-500 hover:text-white transition-colors">
+                About Us
+              </Link>
+              <Link href="/privacy-policy" className="text-gray-500 hover:text-white transition-colors">
                 Privacy Policy
-              </a>
+              </Link>
               <a href="#" className="text-gray-500 hover:text-white transition-colors">
                 Cookie Policy
               </a>
