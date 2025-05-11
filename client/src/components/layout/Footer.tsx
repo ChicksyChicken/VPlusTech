@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "wouter";
-import { FaTwitter, FaLinkedin, FaGithub, FaYoutube, FaDiscord } from "react-icons/fa";
+import { FaGithub, FaDiscord } from "react-icons/fa";
 import { COMPANY_INFO } from "@/lib/constants";
 
 const Footer: React.FC = () => {
@@ -26,32 +26,13 @@ const Footer: React.FC = () => {
             <p className="text-gray-400 mb-6">Powering Tomorrow's Technology Today</p>
             <div className="flex space-x-4">
               <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Twitter"
-              >
-                <FaTwitter className="text-xl" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="text-xl" />
-              </a>
-              <a
-                href="#"
+                href="https://github.com/VPP-Tech"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
                 aria-label="GitHub"
               >
                 <FaGithub className="text-xl" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="YouTube"
-              >
-                <FaYoutube className="text-xl" />
               </a>
             </div>
           </div>
@@ -60,27 +41,12 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-6">Company</h4>
             <ul className="space-y-3">
               <li>
-                <button
-                  onClick={() => scrollToSection("about")}
+                <Link
+                  href="/about"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   About Us
-                </button>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Press
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Blog
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -118,17 +84,15 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-6">Resources</h4>
+            <h4 className="text-lg font-semibold mb-6">Connect</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Support
-                </a>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Contact Us
+                </button>
               </li>
               <li>
                 <a
