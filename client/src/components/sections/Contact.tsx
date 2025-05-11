@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone, CheckCircle } from "lucide-react";
 import { FaDiscord, FaTwitter, FaLinkedin, FaGithub, FaYoutube } from "react-icons/fa";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { COMPANY_INFO } from "@/lib/constants";
+import { useToast } from "@/hooks/use-toast";
 
 interface ContactFormData {
   name: string;
@@ -127,7 +129,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">Email</h4>
-                    <p className="text-gray-600">info@vplusplus.tech</p>
+                    <p className="text-gray-600">{COMPANY_INFO.email}</p>
                   </div>
                 </div>
 

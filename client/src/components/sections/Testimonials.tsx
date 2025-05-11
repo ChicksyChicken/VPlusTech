@@ -26,15 +26,14 @@ const Testimonials: React.FC = () => {
               <Star className="fill-current h-5 w-5" />
             </div>
             <p className="italic mb-6">
-              "V++ Technology delivered a custom software solution that streamlined our
-              entire operation. Their attention to detail and commitment to quality is
-              unmatched."
+              "CodeForge has been incredibly helpful for our development team. The clean interface and solid 
+              performance have made it our go-to editor for various projects. Definitely recommend trying it out."
             </p>
             <div className="flex items-center">
               <div className="w-12 h-12 bg-[hsl(var(--primary))/0.3] rounded-full mr-4"></div>
               <div>
-                <div className="font-semibold">Sarah Johnson</div>
-                <div className="text-sm opacity-75">CTO, TechSolutions Inc.</div>
+                <div className="font-semibold">Alex Morgan</div>
+                <div className="text-sm opacity-75">Software Developer</div>
               </div>
             </div>
           </div>
@@ -51,14 +50,15 @@ const Testimonials: React.FC = () => {
               <Star className="fill-current h-5 w-5" />
             </div>
             <p className="italic mb-6">
-              "The CodeForge Suite has completely transformed how our development team
-              works. It's intuitive, powerful, and the support from V++ is excellent."
+              "I've been using CodeForge for about 3 months now for my PHP and JavaScript projects. 
+              It's lightweight but has all the features I need for web development. The syntax highlighting 
+              is especially good."
             </p>
             <div className="flex items-center">
               <div className="w-12 h-12 bg-[hsl(var(--primary))/0.3] rounded-full mr-4"></div>
               <div>
-                <div className="font-semibold">Mark Reynolds</div>
-                <div className="text-sm opacity-75">Lead Developer, Innovate Labs</div>
+                <div className="font-semibold">Jamie Chen</div>
+                <div className="text-sm opacity-75">Web Developer</div>
               </div>
             </div>
           </div>
@@ -75,15 +75,15 @@ const Testimonials: React.FC = () => {
               <Star className="fill-current h-5 w-5 opacity-50" />
             </div>
             <p className="italic mb-6">
-              "We partnered with SixOps for our game's development and were blown away by
-              their creativity and technical expertise. Looking forward to our next
-              collaboration!"
+              "As a hobbyist game developer, I've been following SixOps' VR projects with interest. 
+              Their Discord community has been a great resource for learning about the latest 
+              in XR technologies."
             </p>
             <div className="flex items-center">
               <div className="w-12 h-12 bg-[hsl(var(--primary))/0.3] rounded-full mr-4"></div>
               <div>
-                <div className="font-semibold">Alex Chen</div>
-                <div className="text-sm opacity-75">Founder, Nebula Games</div>
+                <div className="font-semibold">Sam Taylor</div>
+                <div className="text-sm opacity-75">Indie Game Developer</div>
               </div>
             </div>
           </div>

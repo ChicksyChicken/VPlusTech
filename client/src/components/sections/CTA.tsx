@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { FaDiscord } from "react-icons/fa";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { COMPANY_INFO } from "@/lib/constants";
 
 const CTA: React.FC = () => {
   const { ref, isVisible } = useIntersectionObserver();
@@ -38,7 +39,7 @@ const CTA: React.FC = () => {
                   Contact Us
                 </Button>
                 <a
-                  href="https://discord.gg"
+                  href={COMPANY_INFO.discordLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-md hover:bg-gray-200 transition-colors"

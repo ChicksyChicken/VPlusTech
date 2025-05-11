@@ -52,7 +52,31 @@ const SixOps: React.FC = () => {
                 <div>
                   <h4 className="font-semibold text-gray-800">VR/AR Solutions</h4>
                   <p className="text-gray-600">
-                    Exploring virtual and augmented reality to create immersive worlds
+                    Creating immersive virtual and augmented reality experiences
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex">
+                <div className="flex-shrink-0 w-10 h-10 bg-[hsl(var(--v-primary))/0.1] rounded-full flex items-center justify-center mr-4">
+                  <Glasses className="h-5 w-5 text-[hsl(var(--v-primary))]" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800">XR Development</h4>
+                  <p className="text-gray-600">
+                    Extended reality applications for training, education, and entertainment
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex">
+                <div className="flex-shrink-0 w-10 h-10 bg-[hsl(var(--v-primary))/0.1] rounded-full flex items-center justify-center mr-4">
+                  <Cpu className="h-5 w-5 text-[hsl(var(--v-primary))]" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800">Advanced Tech Integration</h4>
+                  <p className="text-gray-600">
+                    Combining AI, machine learning, and haptic feedback systems for next-gen experiences
                   </p>
                 </div>
               </div>
@@ -72,7 +96,7 @@ const SixOps: React.FC = () => {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://discord.gg"
+                href={COMPANY_INFO.sixopsDiscordLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center px-6 py-3 rounded-md bg-[hsl(var(--v-primary))] text-white font-medium hover:bg-[hsl(var(--v-primary-light))] transition-colors"
