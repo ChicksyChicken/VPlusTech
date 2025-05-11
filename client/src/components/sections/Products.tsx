@@ -42,15 +42,11 @@ const Products: React.FC = () => {
                 </div>
                 <div className="flex items-center mb-2">
                   <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span className="text-gray-700">Support for 20+ programming languages</span>
-                </div>
-                <div className="flex items-center mb-2">
-                  <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span className="text-gray-700">Integrated debugger and version control</span>
+                  <span className="text-gray-700">Support for 10 programming languages</span>
                 </div>
                 <div className="flex items-center">
                   <Check className="h-5 w-5 text-green-500 mr-2" />
-                  <span className="text-gray-700">Extensible plugin architecture</span>
+                  <span className="text-gray-700">Integrated debugger and version control</span>
                 </div>
               </div>
 
@@ -92,13 +88,13 @@ const Products: React.FC = () => {
                 <Database className="h-6 w-6 text-gray-400" />
               </div>
               <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
-                Coming Q3 2023
+                Coming Q2 2026
               </span>
             </div>
 
             <h4 className="text-xl font-bold text-gray-700 mb-3">DataSync Pro</h4>
             <p className="text-gray-500 mb-6">
-              An enterprise data synchronization solution designed for seamless integration
+              A simple enterprise data synchronization solution designed for seamless integration
               between multiple databases and applications.
             </p>
 
@@ -131,7 +127,7 @@ const Products: React.FC = () => {
                 <Cloud className="h-6 w-6 text-gray-400" />
               </div>
               <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
-                Coming Q4 2023
+                Coming Q4 2026
               </span>
             </div>
 
