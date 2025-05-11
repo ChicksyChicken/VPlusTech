@@ -20,11 +20,78 @@ interface ContactFormData {
 
 const Contact: React.FC = () => {
   const { ref, isVisible } = useIntersectionObserver();
-  const { register, handleSubmit, formState } = useForm<ContactFormData>();
+  const { register, handleSubmit, formState, reset } = useForm<ContactFormData>();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log("Form submitted:", data);
-    // Here you would typically send the form data to your backend
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    try {
+      // Send to Discord webhook
+      const webhookUrl = "https://discord.com/api/webhooks/1371142690334572677/7hmd3_9E6zSfiSogOqpt1aAiiy38Rza0mvNTfLGW3S_xB_qXRRbEbhwKk20F5Vv6ub5d";
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: `<@1322215102509879397> <@856039322359693333>`,
+          embeds: [{
+            title: "New Message Received!",
+            color: 3447003,
+            fields: [
+              {
+                name: "Name",
+                value: data.name
+              },
+              {
+                name: "Email",
+                value: data.email
+              },
+              {
+                name: "Message Type",
+                value: data.subject
+              },
+              {
+                name: "Message",
+                value: data.message
+              }
+            ],
+            timestamp: new Date().toISOString(),
+            footer: {
+              text: "V++ Technology Contact Form • " + new Date().toLocaleString()
+            }
+          }]
+        })
+      });
+      
+      if (response.ok) {
+        setIsSuccess(true);
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        reset();
+        // Reset success state after 3 seconds
+        setTimeout(() => setIsSuccess(false), 3000);
+      } else {
+        toast({
+          title: "Something went wrong",
+          description: "Please try again later or contact us directly via email.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later or contact us directly via email.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -100,9 +167,25 @@ const Contact: React.FC = () => {
               <div>
                 <Button
                   type="submit"
-                  className="w-full px-6 py-3 bg-[hsl(var(--v-primary))] hover:bg-[hsl(var(--v-primary-light))]"
+                  className="w-full px-6 py-3 bg-[hsl(var(--v-primary))] hover:bg-[hsl(var(--v-primary-light))] relative"
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <span className="flex items-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Processing...
+                    </span>
+                  ) : isSuccess ? (
+                    <span className="flex items-center">
+                      <CheckCircle className="mr-2 h-5 w-5" />
+                      Message Sent!
+                    </span>
+                  ) : (
+                    "Send Message"
+                  )}
                 </Button>
               </div>
             </form>
@@ -119,7 +202,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">Address</h4>
-                    <p className="text-gray-600">1234 Technology Drive, Silicon Valley, CA 94043</p>
+                    <p className="text-gray-600">Coming soon</p>
                   </div>
                 </div>
 
@@ -139,7 +222,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">Coming soon</p>
                   </div>
                 </div>
 
@@ -151,12 +234,12 @@ const Contact: React.FC = () => {
                     <h4 className="font-semibold text-gray-800">Discord</h4>
                     <p className="text-gray-600">Join our Discord community</p>
                     <a
-                      href="https://discord.gg"
+                      href={COMPANY_INFO.discordLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[hsl(var(--v-primary))] font-medium hover:text-[hsl(var(--v-primary-light))] transition-colors"
                     >
-                      discord.gg/vplusplus
+                      {COMPANY_INFO.discordInvite}
                     </a>
                   </div>
                 </div>
@@ -164,37 +247,34 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="bg-gray-50 rounded-xl p-8 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Follow Us</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">SixOps Development</h3>
 
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-[hsl(var(--v-primary))] text-white rounded-full flex items-center justify-center hover:bg-[hsl(var(--v-primary-light))] transition-colors"
-                  aria-label="Twitter"
-                >
-                  <FaTwitter />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-[hsl(var(--v-primary))] text-white rounded-full flex items-center justify-center hover:bg-[hsl(var(--v-primary-light))] transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedin />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-[hsl(var(--v-primary))] text-white rounded-full flex items-center justify-center hover:bg-[hsl(var(--v-primary-light))] transition-colors"
-                  aria-label="GitHub"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-[hsl(var(--v-primary))] text-white rounded-full flex items-center justify-center hover:bg-[hsl(var(--v-primary-light))] transition-colors"
-                  aria-label="YouTube"
-                >
-                  <FaYoutube />
-                </a>
+              <div className="flex items-center mb-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-[hsl(var(--v-primary))/0.1] rounded-full flex items-center justify-center mr-4">
+                  <Mail className="h-5 w-5 text-[hsl(var(--v-primary))]" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800">Email</h4>
+                  <p className="text-gray-600">{COMPANY_INFO.sixopsEmail}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center">
+                <div className="flex-shrink-0 w-10 h-10 bg-[hsl(var(--v-primary))/0.1] rounded-full flex items-center justify-center mr-4">
+                  <FaDiscord className="h-5 w-5 text-[hsl(var(--v-primary))]" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800">SixOps Discord</h4>
+                  <p className="text-gray-600">Join our gaming community</p>
+                  <a
+                    href={COMPANY_INFO.sixopsDiscordLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[hsl(var(--v-primary))] font-medium hover:text-[hsl(var(--v-primary-light))] transition-colors"
+                  >
+                    {COMPANY_INFO.sixopsDiscordInvite}
+                  </a>
+                </div>
               </div>
             </div>
           </div>

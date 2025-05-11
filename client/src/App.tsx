@@ -16,6 +16,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/privacy-policy" component={(() => import("@/pages/PrivacyPolicy").then(module => module.default))} />
+      <Route path="/about" component={(() => import("@/pages/About").then(module => module.default))} />
       <Route component={NotFound} />
     </Switch>
   );
