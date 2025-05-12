@@ -16,8 +16,13 @@ const Login = () => {
   const form = useForm<LoginFormData>();
 
   const onSubmit = (data: LoginFormData) => {
-    console.log('Login data:', data);
-    // Handle login logic here
+    if (data.email === 'admin@admin.com' && data.password === 'admin123') {
+      console.log('Login successful');
+      // Add your login success logic here
+    } else {
+      form.setError('email', { message: 'Invalid credentials' });
+      form.setError('password', { message: 'Invalid credentials' });
+    }
   };
 
   return (

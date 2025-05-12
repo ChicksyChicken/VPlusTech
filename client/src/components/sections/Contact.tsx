@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
           }]
         })
       });
-      
+
       if (response.ok) {
         setIsSuccess(true);
         toast({
@@ -115,7 +115,7 @@ const Contact: React.FC = () => {
                 <Input
                   id="name"
                   placeholder="Your name"
-                  {...register("name", { required: true })}
+                  {...register("name", { required: "Full name is required" })}
                   className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--v-primary))] focus:border-transparent"
                 />
               </div>

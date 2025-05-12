@@ -63,14 +63,20 @@ const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <button
+                  onClick={() => scrollToSection("datasync")}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   DataSync Pro
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <button
+                  onClick={() => scrollToSection("cloudarch")}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   CloudArch Framework
-                </a>
+                </button>
               </li>
               <li>
                 <button
