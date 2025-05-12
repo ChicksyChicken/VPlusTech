@@ -85,6 +85,10 @@ const Header: React.FC = () => {
                     </span>
                   </div>
                 </div>
+                <div className="hidden md:flex items-center space-x-4">
+                  <Link href="/login" className="text-gray-600 hover:text-gray-900">Login</Link>
+                  <Link href="/signup" className="px-4 py-2 rounded-md bg-[hsl(var(--v-primary))] text-white hover:bg-[hsl(var(--v-primary-light))]">Sign Up</Link>
+                </div>
               )}
             </div>
 
