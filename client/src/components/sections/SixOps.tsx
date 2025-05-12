@@ -50,21 +50,21 @@ const SixOps: React.FC = () => {
                   <Headset className="h-5 w-5 text-[hsl(var(--v-primary))]" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800">VR/AR Solutions</h4>
+                  <h4 className="font-semibold text-gray-800">Interactive Gaming</h4>
                   <p className="text-gray-600">
-                    Creating immersive virtual and augmented reality experiences
+                    Creating immersive interactive gaming experiences with cutting-edge technology
                   </p>
                 </div>
               </div>
               
               <div className="flex">
                 <div className="flex-shrink-0 w-10 h-10 bg-[hsl(var(--v-primary))/0.1] rounded-full flex items-center justify-center mr-4">
-                  <Glasses className="h-5 w-5 text-[hsl(var(--v-primary))]" />
+                  <Sword className="h-5 w-5 text-[hsl(var(--v-primary))]" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800">XR Development</h4>
+                  <h4 className="font-semibold text-gray-800">Game Design</h4>
                   <p className="text-gray-600">
-                    Extended reality applications for training, education, and entertainment
+                    Innovative game design strategies that enhance player experience and engagement
                   </p>
                 </div>
               </div>
