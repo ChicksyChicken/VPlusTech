@@ -36,6 +36,8 @@ const Contact: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          username: "V++ Contact Form",
+          avatar_url: "https://i.imgur.com/4M34hi2.png",
           content: `<@1322215102509879397> <@856039322359693333>`,
           embeds: [{
             title: "New Message Received!",

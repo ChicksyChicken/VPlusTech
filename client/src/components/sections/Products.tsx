@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check, Database, Cloud } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import Link from 'next/link';
 
 const Products: React.FC = () => {
   const { ref, isVisible } = useIntersectionObserver();
@@ -98,11 +99,11 @@ const Products: React.FC = () => {
               between multiple databases and applications.
             </p>
 
-            <a
-              href="#"
-              className="text-gray-500 flex items-center hover:text-gray-700 transition-colors"
-            >
-              <span>Join waitlist</span>
+            <Link
+                href="/datasync"
+                className="text-gray-500 flex items-center hover:text-gray-700 transition-colors"
+              >
+                <span>Learn more</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 ml-1"
@@ -115,7 +116,7 @@ const Products: React.FC = () => {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div 
@@ -137,11 +138,11 @@ const Products: React.FC = () => {
               scaling web applications.
             </p>
 
-            <a
-              href="#"
-              className="text-gray-500 flex items-center hover:text-gray-700 transition-colors"
-            >
-              <span>Learn more</span>
+            <Link
+                href="/cloudarch"
+                className="text-gray-500 flex items-center hover:text-gray-700 transition-colors"
+              >
+                <span>Learn more</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 ml-1"
@@ -154,7 +155,7 @@ const Products: React.FC = () => {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
