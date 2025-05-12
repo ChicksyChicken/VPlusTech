@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   const { isOpen, toggle, close } = useMobileMenu();
   const [productDropdownVisible, setProductDropdownVisible] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
-  
+
   // Apply dark mode class to html element
   useEffect(() => {
     if (darkMode) {
@@ -85,26 +85,14 @@ const Header: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <div className="hidden md:flex items-center space-x-4">
-                  <Link href="/login" className="text-gray-600 hover:text-gray-900">Login</Link>
-                  <Link href="/signup" className="px-4 py-2 rounded-md bg-[hsl(var(--v-primary))] text-white hover:bg-[hsl(var(--v-primary-light))]">Sign Up</Link>
-                </div>
               )}
             </div>
-
-            <button
-              onClick={() => scrollToSection("sixops")}
-              className="text-gray-700 hover:text-[hsl(var(--v-primary-light))] font-medium transition-colors"
-            >
-              SixOps
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-gray-700 hover:text-[hsl(var(--v-primary-light))] font-medium transition-colors"
-            >
-              Contact
-            </button>
           </nav>
+
+          <div className="hidden md:flex items-center space-x-4">
+            <Link href="/login" className="text-gray-600 hover:text-gray-900">Login</Link>
+            <Link href="/signup" className="px-4 py-2 rounded-md bg-[hsl(var(--v-primary))] text-white hover:bg-[hsl(var(--v-primary-light))]">Sign Up</Link>
+          </div>
 
           {/* Mobile Navigation Trigger */}
           <div className="md:hidden">
@@ -127,7 +115,7 @@ const Header: React.FC = () => {
               <Moon className="h-5 w-5" />
             )}
           </Button>
-          
+
           {/* Join Discord Button */}
           <a
             href={COMPANY_INFO.discordLink}
@@ -143,12 +131,12 @@ const Header: React.FC = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col space-y-3">
-              <button
-                onClick={() => scrollToSection("about")}
+              <Link
+                href="/about"
                 className="text-gray-700 hover:text-[hsl(var(--v-primary-light))] font-medium transition-colors py-1"
               >
                 About
-              </button>
+              </Link>
               <button
                 onClick={() => scrollToSection("products")}
                 className="text-gray-700 hover:text-[hsl(var(--v-primary-light))] font-medium transition-colors py-1"
@@ -167,10 +155,14 @@ const Header: React.FC = () => {
               >
                 Contact
               </button>
+              <div className="flex flex-col space-y-2">
+                <Link href="/login" className="text-gray-600 hover:text-gray-900">Login</Link>
+                <Link href="/signup" className="px-4 py-2 rounded-md bg-[hsl(var(--v-primary))] text-white hover:bg-[hsl(var(--v-primary-light))] text-center">Sign Up</Link>
+              </div>
               <Button 
                 variant="ghost" 
                 onClick={() => setDarkMode(!darkMode)} 
-                className="flex justify-start items-center py-1 w-full" 
+                className="flex justify-start items-center py-1 w-full"
               >
                 {darkMode ? (
                   <Sun className="h-5 w-5 mr-2" />
@@ -179,7 +171,7 @@ const Header: React.FC = () => {
                 )}
                 {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               </Button>
-              
+
               <a
                 href={COMPANY_INFO.discordLink}
                 target="_blank"
