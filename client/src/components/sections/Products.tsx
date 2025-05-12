@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check, Database, Cloud } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import Link from 'next/link';
+import { Link } from "wouter";
 
 const Products: React.FC = () => {
   const { ref, isVisible } = useIntersectionObserver();
@@ -100,7 +100,7 @@ const Products: React.FC = () => {
             </p>
 
             <Link
-                href="/datasync"
+                to="/datasync"
                 className="text-gray-500 flex items-center hover:text-gray-700 transition-colors"
               >
                 <span>Learn more</span>
@@ -139,7 +139,7 @@ const Products: React.FC = () => {
             </p>
 
             <Link
-                href="/cloudarch"
+                to="/cloudarch"
                 className="text-gray-500 flex items-center hover:text-gray-700 transition-colors"
               >
                 <span>Learn more</span>
